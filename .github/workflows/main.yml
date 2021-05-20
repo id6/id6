@@ -44,15 +44,15 @@ jobs:
         env:
           RELEASE_DEPLOY_KEY: ${{ secrets.RELEASE_DEPLOY_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      #      - name: "publish dockerhub"
-      #        if: ${{ env.IS_RELEASE_BRANCH == 'true' }}
-      #        run: |
-      #          docker login -u $DOCKER_USER -p $DOCKER_TOKEN
-      #          IS_NEXT=${{ github.ref == 'refs/heads/next' }}
-      #          npx docker-semver-tags --sourceImage $TMP_DOCKER_IMAGE --targetImage $DOCKER_IMAGE --versionTag $(cat VERSION) --channelOnly $IS_NEXT
-      #        env:
-      #          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      #          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+      - name: "publish dockerhub"
+        if: ${{ env.IS_RELEASE_BRANCH == 'true' }}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_TOKEN
+          IS_NEXT=${{ github.ref == 'refs/heads/next' }}
+          npx docker-semver-tags --sourceImage $TMP_DOCKER_IMAGE --targetImage $DOCKER_IMAGE --versionTag $(cat VERSION) --channelOnly $IS_NEXT
+        env:
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
       - name: "realign next"
         if: ${{ env.IS_RELEASE_BRANCH == 'true' }}
         run: |
