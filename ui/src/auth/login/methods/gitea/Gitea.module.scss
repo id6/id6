@@ -1,0 +1,13 @@
+$gitea-color: #ccf7a1;
+$gitea-bg: linear-gradient(222.08deg, #ccf7a1 0%, #73bd28 100%), #ffffff;
+
+.gitea {
+  background: $gitea-bg;
+}
+
+.icon {
+  display: block;
+  width: 100%;
+  position: relative;
+  bottom: -2px;
+}

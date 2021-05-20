@@ -1,0 +1,17 @@
+:3000 {
+
+  root * /ui
+  encode gzip
+
+  route /api/* {
+    uri strip_prefix /api
+    reverse_proxy localhost:3001
+  }
+
+  route * {
+    header Cache-Control "public,max-age=0,must-revalidate"
+    try_files {http.request.uri.path} /index.html
+    file_server
+  }
+
+}

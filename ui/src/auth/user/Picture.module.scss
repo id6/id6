@@ -1,0 +1,44 @@
+@import "src/styles/variables";
+@import "src/styles/animations";
+
+.container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transition: $transition-base;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 50%;
+
+  &:hover {
+    filter: blur(8px);
+    transform: scale(1.1);
+  }
+}
+
+.empty {
+  background: $gray-200;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transition: $transition-base;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.loading {
+  filter: blur(8px);
+  animation: pulse 1s infinite;
+}

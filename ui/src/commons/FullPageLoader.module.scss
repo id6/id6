@@ -1,0 +1,18 @@
+@import "src/styles/animations";
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: auto;
+  height: 80px;
+  // animation
+  transform: scale(1);
+  opacity: 1;
+  animation: pulse 1s infinite;
+}

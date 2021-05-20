@@ -1,0 +1,52 @@
+{
+  "name": "id6",
+  "version": "1.0.0",
+  "description": "Authentication and authorization service. Never write auth again.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/id6/id6"
+  },
+  "scripts": {
+    "postinstall": "npm ci --prefix commons && npm ci --prefix server && npm ci --prefix ui",
+    "prestart": "docker-compose -f ./docker-compose-dev.yml up -d",
+    "start": "npm run build --prefix commons && npm-run-all --parallel start:commons start:server start:ui",
+    "start:commons": "npm run start --prefix commons",
+    "start:server": "npm run start --prefix server",
+    "start:ui": "npm run start --prefix ui",
+    "build": "npm run build:commons && npm run build:server && npm run build:ui",
+    "build:commons": "npm run build --prefix commons",
+    "build:server": "npm run build --prefix server",
+    "build:ui": "npm run build --prefix ui",
+    "pretest": "npm run build:commons",
+    "test": "npm run test:server",
+    "test:server": "npm run test --prefix server",
+    "prelint": "npm run build:commons",
+    "lint": "npm run lint --prefix server",
+    "lint:fix": "npm run lint:fix --prefix server",
+    "translations": "npm run translations --prefix ui",
+    "docs:env": "npx ts-node --project tsconfig.base.json ./scripts/generate-env-docs.ts > env.md"
+  },
+  "keywords": [
+    "id6",
+    "auth",
+    "authentication",
+    "authorization",
+    "service"
+  ],
+  "author": "Geoffroy Empain",
+  "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "npm-run-all": "^4.1.5",
+    "semantic-release": "^17.4.2",
+    "semantic-release-license": "^1.0.2",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "i18next": "^20.1.0",
+    "i18next-browser-languagedetector": "^6.1.0",
+    "i18next-http-backend": "^1.2.1",
+    "react-i18next": "^11.8.12"
+  }
+}

@@ -1,0 +1,41 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+$padding: 120px;
+
+.container {
+  padding: $padding 0;
+  position: relative;
+}
+
+.box {
+  background: $white;
+  border-radius: 15px;
+  padding: 2rem;
+  width: 300px;
+  box-shadow: $box-shadow;
+
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: $padding/2;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  height: 60px;
+}
+
+.links {
+  position: absolute;
+  bottom: $padding - 50px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}

@@ -1,0 +1,47 @@
+$_indigoGradient: linear-gradient(0.04deg, #ff9882 0.07%, #5500ff 99.93%);
+$_spaceGradient: linear-gradient(184.01deg, #7153ac 0%, #1b0449 100%);
+$_orangeGradient: linear-gradient(250.75deg, #fca326 0%, #e24329 100%);
+$_greenGradient: linear-gradient(225deg, #50e69b 0%, #1dbe6d 100%);
+$_redGradient: linear-gradient(225deg, #f4719d 0%, #ec135b 100%);
+$_blueGradient: linear-gradient(60.72deg, #1d56c9 0%, #33bbff 100%);
+$_blackGradient: linear-gradient(250.75deg, #4d4d4d 0%, #000000 100%);
+$_silverGradient: linear-gradient(179.31deg, #ffffff 0%, #f8f5ff 97.11%);
+
+$_boxShadow: 0px 10px 50px rgba(27, 4, 73, 0.1), 0px 5px 10px rgba(27, 4, 73, 0.1);
+$_boxShadow-1: 0 2px 74px 0 rgb(0 0 0 / 10%);
+
+$gradient-primary: linear-gradient(135.45deg, #21D4FD 0%, #B721FF 99.22%);
+$bg-primary: #282D2D;
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import "~@fontsource/inter/400.css";
+@import "~@fontsource/inter/500.css";
+@import "~@fontsource/inter/700.css";
+
+// override bootstrap variables here
+
+$font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$border-radius: 8px;
+$box-shadow: $_boxShadow-1;
+$body-bg: $gray-100;
+$headings-font-weight: 700;
+$body-color: $bg-primary;
+$card-border-width: 0;
+$card-border-radius: $border-radius;
+$input-border-width: 0;
+$input-bg: $light;
+$modal-content-border-width: 0;
+$modal-header-border-width: 0;
+$btn-border-width: 0;
+
+// custom styles
+label {
+  font-size: .8rem;
+}
+
+button {
+  &:hover, &:active, &:focus {
+    border-color: inherit !important;
+  }
+}

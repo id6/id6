@@ -1,0 +1,12 @@
+$google-color: #e8453c;
+$google-bg: linear-gradient(250.75deg, #e8453c 0%, lighten(#e8453c, 10%) 100%);
+
+.google {
+  background: $google-bg;
+}
+
+.icon {
+  color: $google-color;
+  display: block;
+  width: 100%;
+}

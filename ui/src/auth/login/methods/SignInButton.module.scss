@@ -1,0 +1,54 @@
+@import 'src/styles/variables';
+
+.container {
+  position: relative;
+  border: none;
+  border-radius: $btn-border-radius;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: normal;
+  font-size: 1rem;
+  width: 100%;
+  height: $input-height;
+  margin-bottom: .5rem;
+
+  transition: $transition-base;
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+}
+
+.iconContainer {
+  background: $light;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  $size: 30px;
+  width: $size;
+  height: $size;
+  font-size: $size;
+
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.icon {
+  display: flex;
+  height: 70%;
+  width: auto;
+  max-width: 80%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.label {
+
+}

@@ -1,0 +1,5 @@
+*
+!server/build
+!server/node_modules
+!ui/build
+!docker
