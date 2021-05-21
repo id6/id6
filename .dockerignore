@@ -1,5 +1,6 @@
 *
 !server/build
-!server/node_modules
 !ui/build
 !docker
+!server/package.json
+!server/package-lock.json
