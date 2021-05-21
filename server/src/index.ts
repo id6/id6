@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires,no-console */
 
-console.log(`id6 ${BUILD_INFO.version} - ${BUILD_INFO.buildDate} - ${BUILD_INFO.version}`);
+console.log(`id6 ${BUILD_INFO.version} - ${BUILD_INFO.buildDate} - ${BUILD_INFO.commitHash}`);
 
 /*
  * Order matters
