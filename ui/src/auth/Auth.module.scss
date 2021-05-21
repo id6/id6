@@ -38,4 +38,12 @@ $padding: 120px;
   bottom: $padding - 50px;
   left: 50%;
   transform: translate(-50%, 0%);
+  width: 100%;
+  text-align: center;
+}
+
+.language {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }

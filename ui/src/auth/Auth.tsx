@@ -20,6 +20,7 @@ import { ConfirmEmail } from './register/ConfirmEmail';
 import { ResendConfirm } from './register/ResendConfirm';
 import { ForgotPassword } from './password/ForgotPassword';
 import { ResetPassword } from './password/ResetPassword';
+import { LanguagePicker } from '../i18/LanguagePicker';
 
 function RedirectHome() {
   return (
@@ -56,35 +57,38 @@ export function Auth() {
       <Error error={error}/>
     </Alert>
   ) : (
-    <div className={styles.container}>
-      <div className={styles.logoContainer}>
-        <AppLogo className={styles.logo} logo={env.ID6_LOGO}/>
+    <>
+      <LanguagePicker className={styles.language}/>
+      <div className={styles.container}>
+        <div className={styles.logoContainer}>
+          <AppLogo className={styles.logo} logo={env.ID6_LOGO}/>
+        </div>
+        <div className={styles.box}>
+          {user ? (
+            <Switch>
+              <Route path={`/`} exact component={UserView}/>
+              <Route path={`/profile`} exact component={Profile}/>
+              <Route component={RedirectHome}/>
+            </Switch>
+          ) : (
+            <Switch>
+              <Route path={`/`} exact component={() => <Login authMethods={authMethods}/>}/>
+              <Route path={`/in-memory`} exact component={hasInMemory ? InMemory : RedirectHome}/>
+              <Route path={`/register`} exact component={hasLocalAuth ? Register : RedirectHome}/>
+              <Route path={`/email/confirm`} exact component={hasLocalAuth ? ConfirmEmail : RedirectHome}/>
+              <Route path={`/email/confirm/send`} exact component={hasLocalAuth ? ResendConfirm : RedirectHome}/>
+              <Route path={`/password/forgot`} exact component={hasLocalAuth ? ForgotPassword : RedirectHome}/>
+              <Route path={`/password/reset`} exact component={hasLocalAuth ? ResetPassword : RedirectHome}/>
+              <Route component={RedirectHome}/>
+            </Switch>
+          )}
+        </div>
+        <div className={styles.links}>
+          <ALink href={env.ID6_REDIRECT_URL}>
+            <FontAwesomeIcon icon={faArrowLeft} className="mr-2"/> Back to <strong>{env.ID6_NAME}</strong>
+          </ALink>
+        </div>
       </div>
-      <div className={styles.box}>
-        {user ? (
-          <Switch>
-            <Route path={`/`} exact component={UserView}/>
-            <Route path={`/profile`} exact component={Profile}/>
-            <Route component={RedirectHome}/>
-          </Switch>
-        ) : (
-          <Switch>
-            <Route path={`/`} exact component={() => <Login authMethods={authMethods}/>}/>
-            <Route path={`/in-memory`} exact component={hasInMemory ? InMemory : RedirectHome}/>
-            <Route path={`/register`} exact component={hasLocalAuth ? Register : RedirectHome}/>
-            <Route path={`/email/confirm`} exact component={hasLocalAuth ? ConfirmEmail : RedirectHome}/>
-            <Route path={`/email/confirm/send`} exact component={hasLocalAuth ? ResendConfirm : RedirectHome}/>
-            <Route path={`/password/forgot`} exact component={hasLocalAuth ? ForgotPassword : RedirectHome}/>
-            <Route path={`/password/reset`} exact component={hasLocalAuth ? ResetPassword : RedirectHome}/>
-            <Route component={RedirectHome}/>
-          </Switch>
-        )}
-      </div>
-      <div className={styles.links}>
-        <ALink href={env.ID6_REDIRECT_URL}>
-          <FontAwesomeIcon icon={faArrowLeft} className="mr-2"/> Back to <strong>{env.ID6_NAME}</strong>
-        </ALink>
-      </div>
-    </div>
+    </>
   );
 }

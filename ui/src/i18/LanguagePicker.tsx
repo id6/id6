@@ -6,6 +6,8 @@ import iso639 from 'iso-639-1';
 import { useAuth, User } from '../auth/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const langs = iso639.getAllCodes().filter(lng => supportedLanguages.includes(lng));
 
@@ -39,6 +41,7 @@ export function LanguagePicker({ className }: {
     <>
       <Dropdown id={uid} className={className}>
         <Dropdown.Toggle as={Button} variant="link">
+          <FontAwesomeIcon icon={faGlobe} className="mr-2"/>
           {currentLang}
         </Dropdown.Toggle>
         <Dropdown.Menu>
