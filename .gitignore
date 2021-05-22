@@ -28,7 +28,6 @@ yarn-error.log*
 dist
 build
 tmp
-samples/id6-express.js
 data
 *.iml
 *.env

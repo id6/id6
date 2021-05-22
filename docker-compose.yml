@@ -1,0 +1,30 @@
+version: "3"
+services:
+  id6:
+    image: id6
+    ports:
+      # authentication (login page + user api)
+      - 3000:3000
+      # authorization (verify tokens from your backends)
+      - 3030:3030
+    environment:
+      ID6_URL: http://localhost:3000
+      # where your users should be redirected after login
+      ID6_REDIRECT_URL: http://localhost:4000
+      # secret used to sign/verify jwt tokens
+      ID6_JWT_SECRET: changeMe
+      # secret used to access the authorization API
+      ID6_AUTHORIZATION_SECRET: changeMe
+      # email config for local auth
+      ID6_MAIL_FROM: noreply@app.com
+      ID6_MAIL_HOST: mailhog
+      ID6_MAIL_PORT: 1025
+    volumes:
+      - ./tmp:/data
+
+  mailhog:
+    image: mailhog/mailhog
+    restart: unless-stopped
+    ports:
+      - 8025:8025
+      - 1025:1025
