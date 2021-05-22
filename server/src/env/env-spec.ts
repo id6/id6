@@ -8,7 +8,7 @@ import { isUrl } from './validators/is-url';
 import { URL } from 'url';
 
 export const envSpec: EnvSpec<Env> = {
-  DEBUG: string().optional()
+  DEBUG: string().optional().default('')
     .description('Enable debug logs. We use the [debug](https://www.npmjs.com/package/debug) Npm package with scope `id6*`. To enable logs, use `DEBUG=id6*`. The scope for database logs is `id6.db`'),
   ID6_NAME: string().optional().default('app')
     .description('Name of your app'),
@@ -111,6 +111,8 @@ export const envSpec: EnvSpec<Env> = {
     .description('Secret for making requests to the authorization API.'),
   ID6_POSTGRES_URL: string().optional()
     .description('Postgres URL if you are using a postgres database.'),
+  ID6_MIGRATE_ROLLBACK: boolean().optional().default(false)
+    .description('Set to `true` to rollback the last migration'),
   ID6_DATA_DIR: string().optional().default(join(process.cwd(), 'data'))
     .description('Path of the directory where we store data.'),
 };

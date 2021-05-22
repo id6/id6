@@ -44,6 +44,7 @@ export interface Env {
 
   // database
   ID6_POSTGRES_URL: string;
+  ID6_MIGRATE_ROLLBACK: boolean;
 
   // typeorm
   // TYPEORM_MIGRATIONS_DIR: string;

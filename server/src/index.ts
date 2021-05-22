@@ -21,7 +21,6 @@ const { initPosthog } = require('./posthog/init-posthog');
 async function main() {
   await initStorage();
   await initPosthog();
-
   await initDb();
 
   const { app: authenticationServer } = await createAuthenticationServer();

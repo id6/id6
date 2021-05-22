@@ -10,12 +10,12 @@
     "prebuild": "rimraf build",
     "build": "webpack --mode=production",
     "build:watch": "webpack --mode=development --watch",
-    "server:watch": "nodemon -w ./build/index.js -w .env -r dotenv/config ./build/index.js dotenv_config_path=.env",
+    "server:watch": "nodemon -w ./build/index.js -w .env ./build/index.js",
     "test": "jest --runInBand --coverage --no-cache --silent",
     "test:debug": "jest --runInBand --coverage --no-cache",
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
-    "typeorm": "typeorm"
+    "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./src/db/ormconfig.ts"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
