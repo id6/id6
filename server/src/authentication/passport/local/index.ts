@@ -17,7 +17,8 @@ const $form = object({
 async function verifyUser(email: string, password: string): Promise<User> {
   const user = await User.findOne({
     where: {
-      email,
+      authProvider: StrategyType.local,
+      externalUserId: email,
     },
   });
 

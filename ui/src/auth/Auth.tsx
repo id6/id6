@@ -21,6 +21,7 @@ import { ResendConfirm } from './register/ResendConfirm';
 import { ForgotPassword } from './password/ForgotPassword';
 import { ResetPassword } from './password/ResetPassword';
 import { LanguagePicker } from '../i18/LanguagePicker';
+import { StrategyType } from '@id6/commons/build/strategy-type';
 
 function RedirectHome() {
   return (
@@ -47,7 +48,7 @@ export function Auth() {
       .finally(() => setLoading(false));
   }, []);
 
-  const hasLocalAuth = authMethods.includes('local');
+  const hasLocalAuth = authMethods.includes(StrategyType.local);
   const hasInMemory = authMethods.includes('in_memory');
 
   return loading ? (

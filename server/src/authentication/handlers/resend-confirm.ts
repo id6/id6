@@ -8,6 +8,7 @@ import { env } from '../../env/env';
 import { generateRandomToken } from '../utils/generate-random-token';
 import { BadRequestError } from '../../commons/errors/bad-request-error';
 import { ErrorCode } from '@id6/commons/build/error-code';
+import { StrategyType } from '@id6/commons/build/strategy-type';
 
 const validators = [
   body(object({
@@ -21,7 +22,7 @@ async function handler(req: Request, res: Response): Promise<void> {
 
   const user = await User.findOne({
     where: {
-      authProvider: 'local',
+      authProvider: StrategyType.local,
       externalUserId: email,
     },
   });
@@ -37,7 +38,7 @@ async function handler(req: Request, res: Response): Promise<void> {
   const token = generateRandomToken();
 
   await User.update({
-    authProvider: 'local',
+    authProvider: StrategyType.local,
     externalUserId: email,
   }, {
     confirmToken: token,

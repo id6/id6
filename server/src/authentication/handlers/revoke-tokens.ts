@@ -8,9 +8,7 @@ import { removeAuthCookie } from '../cookie';
 async function handler(req: Request, res: Response) {
   const { id } = getUser(req);
 
-  await User.update({
-    id,
-  }, {
+  await User.update(id, {
     invalidateTokensAt: new Date(),
   });
 

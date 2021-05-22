@@ -1,4 +1,4 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Unique, UpdateDateColumn } from 'typeorm';
+import { BaseEntity, Column, CreateDateColumn, Entity, Index, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { string } from 'joi';
 import iso639 from 'iso-639-1';
 import { USER_BIO_MAX_LENGTH, USER_NAME_MAX_LENGTH } from '@id6/commons/build/constants';
@@ -10,7 +10,11 @@ export const $language = string()
   .default('en');
 
 @Entity('User')
-@Unique(['authProvider', 'externalUserId'])
+@Index(['authProvider', 'externalUserId'], { unique: true })
+@Index(['resetToken', 'resetTokenExpiresAt'])
+@Index(['resetToken'], { unique: true })
+@Index(['confirmed', 'confirmToken', 'confirmTokenExpiresAt'])
+@Index(['confirmToken'], { unique: true })
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;

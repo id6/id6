@@ -7,12 +7,13 @@ import { InMemory } from './methods/in-memory/InMemory';
 import { Gitlab } from './methods/gitlab/Gitlab';
 import { InMemoryButton } from './methods/in-memory/InMemoryButton';
 import { useTranslation } from 'react-i18next';
+import { StrategyType } from '@id6/commons/build/strategy-type';
 
 export function Login({ authMethods }: {
   authMethods: string[];
 }) {
   const { t } = useTranslation();
-  const localEnabled = authMethods.includes('local');
+  const localEnabled = authMethods.includes(StrategyType.local);
   const inMemoryEnabled = authMethods.includes('in_memory');
   return (
     <div>

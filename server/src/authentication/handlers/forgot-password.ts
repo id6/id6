@@ -8,6 +8,7 @@ import { env } from '../../env/env';
 import { generateRandomToken } from '../utils/generate-random-token';
 import { sendForgotPassword } from '../../emails/send-forgot-password';
 import { ErrorCode } from '@id6/commons/build/error-code';
+import { StrategyType } from '@id6/commons/build/strategy-type';
 
 const validators = [
   body(object({
@@ -20,8 +21,8 @@ async function handler(req: Request, res: Response): Promise<void> {
 
   const count = await User.count({
     where: {
-      authProvider: 'local',
-      email,
+      authProvider: StrategyType.local,
+      externalUserId: email,
     },
   });
 
@@ -32,13 +33,19 @@ async function handler(req: Request, res: Response): Promise<void> {
   const token = generateRandomToken();
 
   await User.update({
-    email,
+    authProvider: StrategyType.local,
+    externalUserId: email,
   }, {
     resetToken: token,
     resetTokenExpiresAt: new Date(Date.now() + env.ID6_TOKEN_EXPIRATION),
   });
 
-  const user = await User.findOne({ where: { email } });
+  const user = await User.findOne({
+    where: {
+      authProvider: StrategyType.local,
+      externalUserId: email,
+    },
+  });
 
   await sendForgotPassword(email, user.email, {
     url: `${env.ID6_URL}/password/reset?token=${token}`,

@@ -26,7 +26,7 @@ async function handler(req: Request, res: Response): Promise<void> {
 
   const count = await User.count({
     where: {
-      authProvider: 'local',
+      authProvider: StrategyType.local,
       externalUserId: email,
     },
   });
