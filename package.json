@@ -40,13 +40,6 @@
     "@semantic-release/git": "^9.0.0",
     "npm-run-all": "^4.1.5",
     "semantic-release": "^17.4.2",
-    "semantic-release-license": "^1.0.2",
     "typescript": "^4.2.4"
-  },
-  "dependencies": {
-    "i18next": "^20.1.0",
-    "i18next-browser-languagedetector": "^6.1.0",
-    "i18next-http-backend": "^1.2.1",
-    "react-i18next": "^11.8.12"
   }
 }
