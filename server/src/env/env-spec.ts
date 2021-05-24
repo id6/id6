@@ -94,7 +94,7 @@ export const envSpec: EnvSpec<Env> = {
     .description('Mail username.'),
   ID6_MAIL_PASSWORD: string().optional()
     .description('Mail password.'),
-  ID6_MAIL_FROM: string().optional().default(`noreply@${new URL(process.env.ID6_URL).host}`)
+  ID6_MAIL_FROM: string().optional().default(`noreply@${process.env.ID6_URL ? new URL(process.env.ID6_URL).host : 'localhost'}`)
     .description('Mail form. Some mail providers (like OVH) force this email to equal the mail username.'),
   ID6_MAIL_SUBJECT_PREFIX: string().optional().default('id6 |')
     .description('Prefix of email subjects.'),
