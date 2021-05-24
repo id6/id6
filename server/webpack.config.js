@@ -16,6 +16,7 @@ const buildInfo = {
 
 const definedVariables = {
   BUILD_INFO: JSON.stringify(buildInfo),
+  POSTHOG_API_KEY: JSON.stringify(process.env.POSTHOG_API_KEY),
 };
 
 console.log('definedVariables', definedVariables);

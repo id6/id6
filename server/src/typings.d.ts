@@ -6,6 +6,7 @@ export interface BuildInfo {
 
 declare global {
   const BUILD_INFO: BuildInfo;
+  const POSTHOG_API_KEY: string;
 }
 
 declare module '*.hbs';

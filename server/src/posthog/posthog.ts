@@ -1,7 +1,7 @@
 import PostHog from 'posthog-node';
 
 export const postHog = new PostHog(
-  'changeMe',
+  POSTHOG_API_KEY || 'changeMe',
   { host: 'https://posthog.id6.io' },
 );
 
