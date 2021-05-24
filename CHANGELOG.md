@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/id6/id6/compare/v1.0.0...v1.1.0) (2021-05-24)
+
+
+### Features
+
+* posthog ([f30118f](https://github.com/id6/id6/commit/f30118f83746a11462fcb528a3a2a822a4d9ea0d))
+
 # 1.0.0 (2021-05-22)
 
 
