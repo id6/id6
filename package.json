@@ -1,6 +1,6 @@
 {
   "name": "id6",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Authentication and authorization service. Never write auth again.",
   "repository": {
     "type": "git",

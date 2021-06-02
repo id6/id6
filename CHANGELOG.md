@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/id6/id6/compare/v1.1.0...v1.2.0) (2021-06-02)
+
+
+### Bug Fixes
+
+* docker port not 3000 ([3beb194](https://github.com/id6/id6/commit/3beb1947c3799076a33808d4e9cd91c00983030a))
+* non-strict install in Dockerfile ([e86218b](https://github.com/id6/id6/commit/e86218ba08a4d0d208c53d4f50f59bb8969ad749))
+
+
+### Features
+
+* exit process after last migration ([3769013](https://github.com/id6/id6/commit/37690134bda4f7743f07aa16c8f50ded265efcbd))
+
 # [1.1.0](https://github.com/id6/id6/compare/v1.0.0...v1.1.0) (2021-05-24)
 
 
