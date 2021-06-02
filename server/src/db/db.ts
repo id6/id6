@@ -10,7 +10,8 @@ export async function initDb() {
 
   if (env.ID6_MIGRATE_ROLLBACK) {
     logger.info('Rolling back migrations');
-    return connection.undoLastMigration();
+    await connection.undoLastMigration();
+    await process.exit(0);
   }
 
   await connection.runMigrations();
