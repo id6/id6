@@ -29,7 +29,7 @@ EXPOSE 9090
 
 WORKDIR /server
 
-RUN npm i --production
+RUN npm ci --production
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["node", "index.js"]
