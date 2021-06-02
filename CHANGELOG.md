@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/id6/id6/compare/v1.2.0...v1.2.1) (2021-06-02)
+
+
+### Bug Fixes
+
+* conflicting ports in docker container ([e474565](https://github.com/id6/id6/commit/e4745652392220d6cb17ad3430c90d2ace80d107))
+
 # [1.2.0](https://github.com/id6/id6/compare/v1.1.0...v1.2.0) (2021-06-02)
 
 
