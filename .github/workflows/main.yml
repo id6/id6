@@ -6,6 +6,8 @@ env:
   DOCKER_IMAGE: "id6io/id6"
   IS_RELEASE_BRANCH: "${{ github.ref == 'refs/heads/latest' || github.ref == 'refs/heads/next' || github.ref == 'refs/heads/beta' }}"
   POSTHOG_API_KEY: "Tb9wG57EhWCpyyjzol5Ax3gLA4au0vrQph4vIXJgMnQ"
+  GIT_AUTHOR_NAME: "id6io"
+  GIT_COMMITTER_NAME: "id6io"
 jobs:
   build:
     runs-on: ubuntu-latest
