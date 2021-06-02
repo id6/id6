@@ -20,7 +20,6 @@ COPY ./docker/Caddyfile /etc/caddy/Caddyfile
 ENV NODE_ENV "production"
 ENV ID6_POSTHOG_ENABLED "true"
 ENV ID6_DATA_DIR "/data"
-ENV ID6_PORT 3000
 
 VOLUME /data
 
